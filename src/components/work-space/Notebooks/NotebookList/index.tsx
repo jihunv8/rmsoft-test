@@ -1,43 +1,24 @@
 import styled from 'styled-components';
-import Notebook from './Notebook';
+import NotebookItem from './NotebookItem';
+import { Notebook } from '../../../../utils/controler/types/Notebook';
 
-function NotebookList() {
+interface NotebookListProps {
+  notebooks: Notebook[];
+}
+
+function NotebookList({ notebooks }: NotebookListProps) {
   return (
     <NotebookListWrapper>
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
-      <Notebook />
+      {notebooks.map((notebook) => {
+        return <NotebookItem key={notebook.id} notebook={notebook} />;
+      })}
     </NotebookListWrapper>
   );
 }
 
 export default NotebookList;
 
-const NotebookListWrapper = styled.div`
+const NotebookListWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;

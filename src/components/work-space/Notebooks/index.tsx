@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import NotebookList from './NotebookList';
+import { getNotebooks } from '../../../utils/controler/notebook/getNotebooks';
 
 function Notebooks() {
+  const { data: notebooks } = getNotebooks();
+
   return (
     <NotebooksWrapper>
       <Header>
         <Title>
           <h2>Notebooks</h2>
-          <span>(0)</span>
+          <span>({notebooks.length})</span>
         </Title>
       </Header>
       <Section>
-        <NotebookList />
+        <NotebookList notebooks={notebooks} />
       </Section>
     </NotebooksWrapper>
   );

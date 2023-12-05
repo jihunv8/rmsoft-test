@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Notebook } from '../../../../../utils/controler/types/Notebook';
 
 interface NotebookMenuProps {
+  notebook: Notebook;
   selected?: boolean;
 }
 
-function NotebookMenu({ selected = false }: NotebookMenuProps) {
+function NotebookMenu({ notebook, selected = false }: NotebookMenuProps) {
   return (
     <NotebookMenuWrapper selected={selected}>
-      <Anchor to="/notebooks/notebook1/notes/note1">
+      <Anchor to={`/notebooks/${encodeURIComponent(notebook.id)}/notes/note1`}>
         <NameArea>
           <Thumbnail></Thumbnail>
-          <Name>notebook1</Name>
+          <Name>{notebook.id}</Name>
           <NumOfNotes>2</NumOfNotes>
         </NameArea>
       </Anchor>

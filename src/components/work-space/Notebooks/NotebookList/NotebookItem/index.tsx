@@ -1,19 +1,24 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Notebook } from '../../../../../utils/controler/types/Notebook';
 
-function Notebook() {
+interface NotebookItemProps {
+  notebook: Notebook;
+}
+
+function NotebookItem({ notebook }: NotebookItemProps) {
   return (
-    <NotebookWrapper>
-      <Anchor to="/notebooks/notebook1/notes/note1">
-        <Name>name</Name>
+    <NotebookItemWrapper>
+      <Anchor to={`/notebooks/${encodeURIComponent(notebook.id)}/notes/note1`}>
+        <Name>{notebook.id}</Name>
       </Anchor>
-    </NotebookWrapper>
+    </NotebookItemWrapper>
   );
 }
 
-export default Notebook;
+export default NotebookItem;
 
-const NotebookWrapper = styled.div`
+const NotebookItemWrapper = styled.div`
   width: 108px;
   height: 135px;
   border: solid 1px #000;
