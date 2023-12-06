@@ -63,6 +63,7 @@ const DeleteButton = styled.button`
 `;
 
 const NoteMenuWrapper = styled.div<{ selected: boolean }>`
+  width: 100%;
   background-color: ${({ selected }) => (selected ? '#28292b' : 'transparent')};
   display: flex;
 
@@ -72,10 +73,11 @@ const NoteMenuWrapper = styled.div<{ selected: boolean }>`
 `;
 
 const Anchor = styled(Link)`
-  flex-grow: 1;
   display: block;
+  flex-basis: 100%;
   padding: 20px 16px 1px;
   text-decoration: none;
+  overflow: hidden;
 `;
 
 const InnerWrapper = styled.div<{ selected: boolean }>`

@@ -71,11 +71,12 @@ const NotebookMenuWrapper = styled.div<{ selected: boolean }>`
 `;
 
 const Anchor = styled(Link)`
-  flex-grow: 1;
+  flex-basis: 100%;
   display: flex;
   align-items: center;
   padding: 6px 0 7px 24px;
   text-decoration: none;
+  overflow: hidden;
 `;
 
 const Thumbnail = styled.div`
