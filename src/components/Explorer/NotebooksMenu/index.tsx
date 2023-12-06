@@ -5,6 +5,7 @@ import { useState } from 'react';
 import NotebookMenuList from './NotebookMenuList';
 import { useModal } from '../../../hooks/modal/useModal';
 import NotebookCreator from '../../NotebookCreator';
+import { Link } from 'react-router-dom';
 
 function NotebooksMenu() {
   const [isListOpen, setIsListOpen] = useState(false);
@@ -25,7 +26,7 @@ function NotebooksMenu() {
             <img alt="arrow-icon" src={arrowIcon} />
           </div>
         </TogleButton>
-        <Anchor href="/notebooks">NOTEBOOKS</Anchor>
+        <Anchor to="/notebooks">NOTEBOOKS</Anchor>
         <AddButton onClick={openModal}>
           <div className="image-container">
             <img alt="cross-icon" src={crossIcon} />
@@ -63,7 +64,7 @@ const TogleButton = styled.button<{ open: boolean }>`
   }
 `;
 
-const Anchor = styled.a`
+const Anchor = styled(Link)`
   height: 100%;
   color: #418af9;
   text-decoration: none;

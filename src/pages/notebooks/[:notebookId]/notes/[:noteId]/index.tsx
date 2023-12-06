@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 import Notes from '../../../../../components/work-space/Notes';
-import { getNotes } from '../../../../../utils/controler/note/getNotes';
 import { useParams } from 'react-router-dom';
+import { useNotes } from '../../../../../hooks/controler/note/useNotes';
+import { useNote } from '../../../../../hooks/controler/note/useNote';
 
 function NoteInNotebook() {
-  const { notebookId } = useParams<{ notebookId: string }>();
-  const { data: notes } = getNotes(notebookId);
+  const { notebookId, noteId } = useParams<{ notebookId: string; noteId: string }>();
+  if (notebookId === undefined) throw new Error('notebookId가 undefined입니다.');
+  if (noteId === undefined) throw new Error('noteId가 undefined입니다.');
+
+  const { data: notes } = useNotes(notebookId);
+  const { data: note } = useNote(noteId);
 
   return (
     <NoteInNotebookWrapper>
-      <Notes notes={notes} notebookId={notebookId} />
+      <Notes notes={notes} selectedNote={note} notebookId={notebookId} />
     </NoteInNotebookWrapper>
   );
 }

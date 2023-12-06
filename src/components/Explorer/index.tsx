@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import NotebooksMenu from './NotebooksMenu';
+import AllNotesMenu from './AllNotesMenu';
 
 function Explorer() {
   return (
     <ExplorerWrapper>
+      <AllNotesMenu />
       <NotebooksMenu />
     </ExplorerWrapper>
   );

@@ -4,10 +4,11 @@ import { Note } from '../../../../utils/controler/types/Note';
 
 interface NoteExplorerProps {
   notes: Note[];
+  selectedNote: Note;
   notebookId?: string;
 }
 
-function NoteExplorer({ notes, notebookId }: NoteExplorerProps) {
+function NoteExplorer({ notes, selectedNote, notebookId }: NoteExplorerProps) {
   return (
     <NoteExplorerWrapper>
       <Header>
@@ -15,9 +16,10 @@ function NoteExplorer({ notes, notebookId }: NoteExplorerProps) {
       </Header>
       <ul>
         {notes.map((note) => {
+          const isSelected = note.id === selectedNote.id;
           return (
             <li key={note.id}>
-              <NoteMenu note={note} notebookId={notebookId} />
+              <NoteMenu note={note} notebookId={notebookId} selected={isSelected} />
             </li>
           );
         })}
@@ -29,6 +31,7 @@ function NoteExplorer({ notes, notebookId }: NoteExplorerProps) {
 export default NoteExplorer;
 
 const NoteExplorerWrapper = styled.nav`
+  flex-shrink: 0;
   height: 100%;
   width: 270px;
   color: #8a8a8a;

@@ -30,5 +30,5 @@ export const getFormedDate = (milliseconds: number) => {
   const [midday, hours] = calcHours(date.getHours());
   const minutes = date.getMinutes();
 
-  return `${calcDate(date)}, ${hours}:${minutes} ${midday}`;
+  return `${calcDate(date)}, ${hours}:${minutes < 10 ? '0' + minutes : minutes} ${midday}`;
 };

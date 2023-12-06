@@ -10,12 +10,12 @@ function Header() {
 
   const onCreateNote = () => {
     if (notebookId === undefined) {
-      const { data: createdNote } = createNote('', '');
+      const { data: createdNote } = createNote('', '', '');
       navigate(`/allnotes/${createdNote.id}`);
       return;
     }
 
-    const { data: createdNote } = createNote('', '', notebookId);
+    const { data: createdNote } = createNote('', '', '', notebookId);
     navigate(`/notebooks/${encodeURIComponent(notebookId)}/notes/${createdNote.id}`);
   };
 

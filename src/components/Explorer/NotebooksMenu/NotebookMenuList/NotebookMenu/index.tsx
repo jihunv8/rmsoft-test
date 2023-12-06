@@ -100,6 +100,7 @@ const Name = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
+
 const NumOfNotes = styled.span`
   font-size: 0.8125;
   color: #858585;

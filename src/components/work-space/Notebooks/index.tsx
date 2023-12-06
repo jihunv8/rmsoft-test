@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import NotebookList from './NotebookList';
-import { getNotebooks } from '../../../utils/controler/notebook/getNotebooks';
+import { useNotebooks } from '../../../hooks/controler/notebook/useNotebooks';
 
 function Notebooks() {
-  const { data: notebooks } = getNotebooks();
+  const { data: notebooks } = useNotebooks();
 
   return (
     <NotebooksWrapper>

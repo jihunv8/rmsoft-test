@@ -11,6 +11,18 @@ export const selectNote = (id: string): QueryResponse<note> => {
 
   if (note === undefined) {
     // 해당 id의 note 없음
+    return {
+      status: 404,
+      message: 'not found',
+      data: {
+        id: '',
+        title: '',
+        content: '',
+        preview: '',
+        createdAt: 0,
+        updatedAt: 0,
+      },
+    };
   }
 
   return {

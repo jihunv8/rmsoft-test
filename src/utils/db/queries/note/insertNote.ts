@@ -2,12 +2,18 @@ import DB from '../../DB';
 import { note } from '../../schema/note';
 import { QueryResponse } from '../QueryResponse';
 
-export const insertNote = (title: string, content: string, notebookId?: string): QueryResponse<note> => {
+export const insertNote = (
+  title: string,
+  content: string,
+  preview: string,
+  notebookId?: string,
+): QueryResponse<note> => {
   const now = Date.now();
   const newNote: note = {
     id: '',
     title,
     content,
+    preview,
     createdAt: now,
     updatedAt: now,
   };

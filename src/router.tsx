@@ -1,11 +1,14 @@
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Notebooks from './components/work-space/Notebooks';
 import App from './App';
 import Home from './pages';
-import AllNotes from './pages/allnotes';
+
 import Notebook from './pages/notebooks/[:notebookId]';
 import NoteInNotebook from './pages/notebooks/[:notebookId]/notes/[:noteId]';
 import notebookLoader from './pages/notebooks/[:notebookId]/loader';
+import NoteInAllNotes from './pages/allnotes/[:noteId]';
+import AllNotes from './pages/allnotes';
+import allnotesLoader from './pages/allnotes/loader';
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +33,13 @@ export const router = createBrowserRouter([
         element: <NoteInNotebook />,
       },
       {
-        path: '/allnotes/:noteId',
+        path: '/allnotes',
         element: <AllNotes />,
+        loader: allnotesLoader,
+      },
+      {
+        path: '/allnotes/:noteId',
+        element: <NoteInAllNotes />,
       },
     ],
   },
